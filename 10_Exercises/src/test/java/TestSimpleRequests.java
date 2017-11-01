@@ -1,8 +1,4 @@
-import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.iterableWithSize;
 
 public class TestSimpleRequests {
 
@@ -37,27 +33,6 @@ public class TestSimpleRequests {
      */
     @Test
     public void testStudentAPI() {
-        given()
-                .body("{\"id\": 1, \"name\":\"Bob\"}")
-                .header("Content-Type", "application/json")
-                .when()
-                .post("/students")
-                .then()
-                .statusCode(201);
 
-        given()
-                .get("/students")
-                .then()
-                .body("students", iterableWithSize(1));
-
-        given()
-                .when()
-                .delete("/students");
-
-        given()
-                .when()
-                .get("/students")
-                .then()
-                .body("students", Matchers.emptyIterable());
     }
 }
