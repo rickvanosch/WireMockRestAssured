@@ -17,11 +17,7 @@ public class WiremockExercise2 {
     * a small hint: absent()
     */
     public void absentStub(){
-//        stubFor(get(urlEqualTo("/getVehicle"))
-//                    .withHeader( "color", matching("black"))
-//                    .withHeader("vehicletype", absent())
-//                    .willReturn( aResponse()
-//                            .withBody("valid get request")));
+
     }
     
     
@@ -54,9 +50,14 @@ public class WiremockExercise2 {
     * The stub should listen to /authenticateMe
     */
     public void authenticationStub(){
-//        stubFor(get(urlEqualTo("/authenticateMe"))
-//                        .withBasicAuth("wiremock", "restassured")
-//                        .willReturn(aResponse().withBody("successfully authenticated")));
+
     }
     
+    /*
+    * Time to check for cookies! Make sure the GET request in this stub comes with a cookie called Country. The value should be Netherlands.
+    Respond with a body equal to "Get Succeeded". Please let the stub listen to /cookieTime
+    */
+    public void cookieStub(){
+
+    }
 }

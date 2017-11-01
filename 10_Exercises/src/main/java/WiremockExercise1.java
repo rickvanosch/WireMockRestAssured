@@ -39,11 +39,6 @@ public class WiremockExercise1 {
     * You'll respond with a status 200 and body 'car inserted'
     */
     public void postNewCar(){
-//        stubFor(post(urlEqualTo("/cars/new")).inScenario("Light bulb")
-//				.withRequestBody(equalTo("brand: audi, color: black, license:22-AA-33"))
-//				.willReturn(aResponse()
-//						.withStatus(200)
-//						.withBody("car inserted")
-//				));
+
     }
 }

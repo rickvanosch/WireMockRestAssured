@@ -70,4 +70,17 @@ public class WiremockExercise2Test {
 	        assertThat().
 	        body(equalTo("successfully authenticated"));
     }
+    
+    @Test
+    public void testCookieStub(){
+        wm2.cookieStub();
+        
+        given().
+	    	cookie("Country","Netherlands").
+	    when().
+	        get("http://localhost:9876/cookieTime").
+	    then().
+	        assertThat().
+	        body(equalTo("Get Succeeded"));
+    }
 }
