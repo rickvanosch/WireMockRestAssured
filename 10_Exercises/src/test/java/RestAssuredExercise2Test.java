@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class testAuthorization {
+public class RestAssuredExercise2Test {
 
     /**
      * There is an api endpoint /secureapi that only lets you GET stuff with the proper
@@ -12,14 +12,7 @@ public class testAuthorization {
      */
     @Test
     public void testBasicAuth() {
-        given()
-                .auth()
-                .preemptive()
-                .basic("admin", "admin")
-                .when()
-                .get("/secureapi")
-                .then()
-                .statusCode(200);
+
     }
 
     /**
@@ -31,25 +24,6 @@ public class testAuthorization {
      */
     @Test
     public void testTokenAuth() {
-        String token =
-                given()
-                        .auth()
-                        .preemptive()
-                        .basic("giveme", "atoken")
-                        .when()
-                        .get("/tokenapi")
-                        .then()
-                        .extract()
-                        .jsonPath()
-                        .get("token")
-                        .toString();
 
-        given()
-                .contentType("application/json")
-                .body("{\"token\": " + token + "}")
-                .when()
-                .post("/input")
-                .then()
-                .statusCode(200);
     }
 }

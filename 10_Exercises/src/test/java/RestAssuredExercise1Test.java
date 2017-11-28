@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class TestSimpleRequests {
+public class RestAssuredExercise1Test {
 
     /**
      * Perform a GET request on localhost:8080/cars and verify the status code is 200

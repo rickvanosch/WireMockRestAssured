@@ -1,3 +1,7 @@
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+
 /**
  * @author rickj
  */
@@ -10,6 +14,10 @@ public class WiremockExercise1 {
     */
     public void getCarsStub() {
         //todo 1.1
+        stubFor(get("cars/all")
+                .willReturn(aResponse()
+                .withStatus(200))
+        );
     }
 
     /*
