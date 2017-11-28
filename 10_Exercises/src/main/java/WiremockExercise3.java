@@ -1,6 +1,3 @@
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import com.github.tomakehurst.wiremock.stubbing.Scenario;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,20 +5,19 @@ import com.github.tomakehurst.wiremock.stubbing.Scenario;
  */
 
 /**
- *
  * @author rickj
  */
 public class WiremockExercise3 {
-    
+
     /*
     * In some cases you might want to delay certain requests, in order to prevent overflooding for instance.
     Build a stub that responds to the get request with a delay of 1000 miliseconds. Make it listen to /delayRequest
     */
-    public void getDelayedStub(){
+    public void getDelayedStub() {
         //todo 3.1
 
     }
-    
+
     /*
     * It is time for some more logic. Create a stub that listens at path /carExercise.
     The scenario is called occasion. Make sure all responses have a HTTP status code 200.
@@ -33,6 +29,5 @@ public class WiremockExercise3 {
     */
     public void ScenarioStub(){
 	//todo 3.2
-        
     }
 }
