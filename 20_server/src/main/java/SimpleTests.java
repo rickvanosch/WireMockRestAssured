@@ -5,7 +5,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.stubbing.Scenario.STARTED;
 
 public class SimpleTests {
-    public static void stub(WireMockServer wireMockServer){
+    public static void stub(WireMockServer wireMockServer) {
         wireMockServer.stubFor(get("/students").inScenario("createStudent")
                 .whenScenarioStateIs(STARTED)
                 .willReturn(aResponse()
@@ -39,7 +39,7 @@ public class SimpleTests {
         wireMockServer.stubFor(delete("/student/1").inScenario("createStudent")
                 .whenScenarioStateIs("created")
                 .willReturn(aResponse()
-                        .withStatus(204)
+                        .withStatus(200)
                 )
                 .willSetStateTo("deleted")
         );
