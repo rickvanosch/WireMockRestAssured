@@ -12,7 +12,7 @@ public class WiremockExercise1 {
     * The stub should respond to all GET request with a 200 HTTP status code
     */
     public void getCarsStub(){
-
+        //todo 1.1
     }
     
     /*
@@ -21,7 +21,7 @@ public class WiremockExercise1 {
     * a body 'brand: lamborghini'
     */
     public void getSpecificCarStub(){
-        
+        //todo 1.2
     }
     
     /*
@@ -30,15 +30,16 @@ public class WiremockExercise1 {
     * make sure it listens to /occasions
     */
     public void getOccasionsStub(){
-        
+        //todo 1.3
     }
     
     /*
     * Mock a response to a post request on /cars/new/ with a body
     * that contains 'brand: audi, color: black, license:22-AA-33'.
     * You'll respond with a status 200 and body 'car inserted'
+    * HINT: containing("...")
     */
     public void postNewCar(){
-
+        //todo 1.4
     }
 }

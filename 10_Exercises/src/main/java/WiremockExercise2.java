@@ -17,6 +17,7 @@ public class WiremockExercise2 {
     * a small hint: absent()
     */
     public void absentStub(){
+        //todo 2.1
 
     }
     
@@ -28,6 +29,7 @@ public class WiremockExercise2 {
     * A small hint: atPriority(int x)
      */
     public void motorbikesStub() {
+        //todo 2.2
         //Catch-all case
 
         //Specific case
@@ -40,6 +42,7 @@ public class WiremockExercise2 {
     * This header will specify that the content-type is of application/json
      */
     public void getAllCarsStub() {
+        //todo 2.3
 
     }
     
@@ -50,6 +53,7 @@ public class WiremockExercise2 {
     * The stub should listen to /authenticateMe
     */
     public void authenticationStub(){
+        //todo 2.4
 
     }
     
@@ -58,6 +62,7 @@ public class WiremockExercise2 {
     Respond with a body equal to "Get Succeeded". Please let the stub listen to /cookieTime
     */
     public void cookieStub(){
+        //todo 2.5
 
     }
 }

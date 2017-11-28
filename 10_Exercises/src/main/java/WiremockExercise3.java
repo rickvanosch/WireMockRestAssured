@@ -18,6 +18,7 @@ public class WiremockExercise3 {
     Build a stub that responds to the get request with a delay of 1000 miliseconds. Make it listen to /delayRequest
     */
     public void getDelayedStub(){
+        //todo 3.1
 
     }
     
@@ -31,6 +32,7 @@ public class WiremockExercise3 {
     5. The 3rd and final GET request should return a body 'No occasions at the dealer'
     */
     public void ScenarioStub(){
-	
+	//todo 3.2
+        
     }
 }
