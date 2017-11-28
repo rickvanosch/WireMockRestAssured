@@ -21,15 +21,15 @@ public class RestAssuredExercise1Test {
     }
 
     /**
-     * Perform a POST request to localhost:8080/students with an object containing an `id`
-     * of 1 and a `name` of Bob.
-     * Make sure the request header 'Content-Type' is 'application/json'.
+     * Perform a POST request to localhost:8080/students with a JSON object containing an `id`
+     * of 1 and a `name` of Bob. Either correctly escape the quotation marks and input the JSON as string or find a more clever approach ;)
+     * Make sure the request header 'Content-Type' is 'application/json' and you set that before you set the body.
      * Perform a GET request to that same endpoint and verify you get an object with a property 'students'
-     * which is an array of size 1.
+     * which is an array of size 1. Do this with the help of Hamcrest Matchers. Some googling may be required.
      * <p>
      * Afterwards,
      * Perform a DELETE request to localhost:8080/student/1.
-     * Confirm afterwards that the object is actually gone by performing another GET.
+     * Confirm afterwards that the object is actually gone by performing another GET and checking the size.
      */
     @Test
     public void testStudentAPI() {
