@@ -8,7 +8,7 @@ public class RestAssuredExercise1Test {
      */
     @Test
     public void testSimpleGet() {
-
+        //TODO 4.1
     }
 
     /**
@@ -17,7 +17,7 @@ public class RestAssuredExercise1Test {
      */
     @Test
     public void testGetAndVerifyObject() {
-
+        //TODO 4.2
     }
 
     /**
@@ -33,6 +33,6 @@ public class RestAssuredExercise1Test {
      */
     @Test
     public void testStudentAPI() {
-
+        //TODO 4.3
     }
 }

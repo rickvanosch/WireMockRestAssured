@@ -12,7 +12,7 @@ public class RestAssuredExercise2Test {
      */
     @Test
     public void testBasicAuth() {
-
+        //TODO 5.1
     }
 
     /**
@@ -24,6 +24,6 @@ public class RestAssuredExercise2Test {
      */
     @Test
     public void testTokenAuth() {
-
+        //TODO 5.2
     }
 }
