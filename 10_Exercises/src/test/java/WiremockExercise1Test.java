@@ -1,22 +1,18 @@
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import org.junit.Rule;
+import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-import org.junit.Rule;
-import org.junit.Test;
-
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-
 /**
- *
  * @author rickj
  */
 public class WiremockExercise1Test {
 
-    WiremockExercise1 wm1 = new WiremockExercise1();
-
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(9876);
+    WiremockExercise1 wm1 = new WiremockExercise1();
 
     @Test
     public void testGetCarsStub() {
@@ -51,11 +47,11 @@ public class WiremockExercise1Test {
                 statusCode(200).
                 statusLine("HTTP/1.1 200 valid response");
     }
-    
+
     @Test
-    public void testPostNewCar(){
+    public void testPostNewCar() {
         wm1.postNewCar();
-        
+
         given().body("brand: audi, color: black, license:22-AA-33").when().post("http://localhost:9876/cars/new").
                 then().
                 assertThat().
