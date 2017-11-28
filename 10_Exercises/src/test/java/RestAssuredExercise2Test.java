@@ -20,7 +20,7 @@ public class RestAssuredExercise2Test {
      * with the proper access token that can be GET from /tokenapi. This endpoint requires the username
      * 'giveme' and password 'atoken'.
      * The /tokenapi endpoint will return a token in a JSON object. Parse this token
-     * and use it in the request body to the /input endpoint. Verify both status codes correctly.
+     * and use it in the request body as JSON object as well to the /input endpoint. Verify both status codes as 200.
      */
     @Test
     public void testTokenAuth() {
