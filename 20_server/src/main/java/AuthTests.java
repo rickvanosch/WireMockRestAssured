@@ -1,17 +1,30 @@
 import com.github.tomakehurst.wiremock.WireMockServer;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 public class AuthTests {
     public static void stub(WireMockServer wireMockServer) {
-        stubFor(get("/secureapi")
+        wireMockServer.stubFor(get("/secureapi")
                 .withBasicAuth("admin", "admin")
                 .willReturn(aResponse()
-                .withStatus(200))
+                        .withStatus(200)
+                        .withBody("successfully authenticated")
+                )
         );
 
+        wireMockServer.stubFor(get("/tokenapi")
+                .withBasicAuth("giveme", "atoken")
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withBody("{ \"token\": \"tokenAzB6vb566V4rcYJ8b5E\" }")
+                        .withHeader("Content-Type", "application/json")
+                ));
 
+        wireMockServer.stubFor(post("/input")
+                .withRequestBody(containing("{ \"token\": \"tokenAzB6vb566V4rcYJ8b5E\" }"))
+                .withHeader("Content-Type", equalTo("application/json"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                ));
     }
 }
