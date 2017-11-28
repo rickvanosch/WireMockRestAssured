@@ -30,7 +30,7 @@ public class WiremockExercise3Test {
                 get("http://localhost:9876/delayRequest").
                 then().
                 assertThat().
-                time(greaterThan(2000L));
+                time(greaterThan(1000L));
     }
 
     @Test
