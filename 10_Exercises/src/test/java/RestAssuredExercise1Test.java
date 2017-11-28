@@ -25,7 +25,7 @@ public class RestAssuredExercise1Test {
      * of 1 and a `name` of Bob.
      * Make sure the request header 'Content-Type' is 'application/json'.
      * Perform a GET request to that same endpoint and verify you get an object with a property 'students'
-     * which is an array of size 2.
+     * which is an array of size 1.
      * <p>
      * Afterwards,
      * Perform a DELETE request to localhost:8080/student/1.
