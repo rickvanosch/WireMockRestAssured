@@ -1,8 +1,6 @@
 {
-  "students": [
-    {
-      "id": 1,
-      "name": "bob"
-    }
-  ]
+  "students": [{
+    "id": 1,
+    "name": "bob"
+  }]
 }

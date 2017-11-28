@@ -33,7 +33,7 @@ public class SimpleTests {
                 .whenScenarioStateIs("deleted")
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
-                        .withBody("\"students\": []"))
+                        .withBody("{\"students\": []}"))
         );
 
         wireMockServer.stubFor(delete("/student/1").inScenario("createStudent")
