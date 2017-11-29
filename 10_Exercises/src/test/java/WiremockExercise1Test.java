@@ -52,7 +52,7 @@ public class WiremockExercise1Test {
     public void testPostNewCar() {
         wm1.postNewCar();
 
-        given().body("brand: audi, color: black, license:22-AA-33").when().post("http://localhost:9876/cars/new").
+        given().body("brand: audi, color: black, license: 22-AA-33").when().post("http://localhost:9876/cars/new").
                 then().
                 assertThat().
                 statusCode(200).

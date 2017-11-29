@@ -20,11 +20,12 @@ public class WiremockExercise3 {
 
     /*
     * It is time for some more logic. Create a stub that listens at path /carExercise.
+    * You will have to use scenarios to complete this exercise.
     The scenario is called occasion. Make sure all responses have a HTTP status code 200.
     1. Make sure a GET returns a body with 'No occasions at the dealer'
-    2. A post with body 'New occasion:vw golf,black,diesel' returns a body 'Occasion added to dealer' and switches the state to 'OCCASION_PRESENT'
+    2. A post with body 'New occasion:vw golf,black,diesel' returns a body 'Occasion added to dealer'
     3. A GET request should now return a body 'Occasions in stock'
-    4. Another POST request with body 'Buy vw golf' should return body 'Purchased car succesfully' and switch the state to 'NO_OCCASIONS_PRESENT'
+    4. Another POST request with body 'Buy vw golf' should return body 'Purchased car succesfully'
     5. The 3rd and final GET request should return a body 'No occasions at the dealer'
     */
     public void ScenarioStub(){
