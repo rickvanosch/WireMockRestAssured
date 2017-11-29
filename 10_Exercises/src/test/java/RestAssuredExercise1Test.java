@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+/**
+ * Make sure the server is running! And port 8080 is free for the server.
+ */
 public class RestAssuredExercise1Test {
 
     /**
