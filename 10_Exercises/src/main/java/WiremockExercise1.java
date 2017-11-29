@@ -1,6 +1,4 @@
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 /**
  * @author rickj
@@ -14,6 +12,10 @@ public class WiremockExercise1 {
     */
     public void getCarsStub() {
         //todo 1.1
+        stubFor(get("/cars/all")
+                .willReturn(aResponse()
+                .withStatus(200))
+        );
     }
 
     /*
@@ -23,6 +25,9 @@ public class WiremockExercise1 {
     */
     public void getSpecificCarStub(){
         //todo 1.2
+        stubFor(get("/cars/25-BB-83")
+                .willReturn(aResponse()
+                        .withBody("brand: lamborghini")));
     }
 
     /*
@@ -32,6 +37,9 @@ public class WiremockExercise1 {
     */
     public void getOccasionsStub(){
         //todo 1.3
+        stubFor(get("/occasions")
+            .willReturn(aResponse()
+                .withStatusMessage("valid response")));
     }
 
     /*
@@ -42,5 +50,9 @@ public class WiremockExercise1 {
     */
     public void postNewCar() {
         //todo 1.4
+        stubFor(post("/cars/new")
+            .withRequestBody(containing("brand: audi, color: black, license: 22-AA-33"))
+        .willReturn(aResponse()
+            .withBody("car inserted")));
     }
 }

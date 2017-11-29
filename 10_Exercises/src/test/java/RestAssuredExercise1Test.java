@@ -1,4 +1,11 @@
+import io.restassured.http.ContentType;
+import org.hamcrest.Matchers;
 import org.junit.Test;
+
+import static io.restassured.RestAssured.delete;
+import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * Make sure the server is running! And port 8080 is free for the server.
@@ -12,6 +19,10 @@ public class RestAssuredExercise1Test {
     @Test
     public void testSimpleGet() {
         //TODO 4.1
+        get("/cars")
+                .then()
+                .statusCode(200)
+                .header("Content-Type", "application/json");
     }
 
     /**
@@ -21,6 +32,10 @@ public class RestAssuredExercise1Test {
     @Test
     public void testGetAndVerifyObject() {
         //TODO 4.2
+        get("/car/1")
+                .then()
+                .statusCode(200)
+                .body("id", equalTo(1));
     }
 
     /**
@@ -37,5 +52,25 @@ public class RestAssuredExercise1Test {
     @Test
     public void testStudentAPI() {
         //TODO 4.3
+
+        given()
+                .contentType(ContentType.JSON)
+                .body("{\"id\": 1, \"name\": \"Bob\"}")
+                .post("/students")
+                .then()
+                .statusCode(201);
+
+        get("/students")
+                .then()
+                .body("students", Matchers.iterableWithSize(1));
+
+        delete("/students")
+                .then()
+                .statusCode(200);
+
+        get("/students")
+                .then()
+                .body("students", Matchers.iterableWithSize(0));
+
     }
 }

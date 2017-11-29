@@ -1,3 +1,5 @@
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
 /**
  * @author rickj
  */
@@ -12,7 +14,11 @@ public class WiremockExercise2 {
     */
     public void absentStub() {
         //todo 2.1
-
+        stubFor(get("/getVehicle")
+            .withHeader("vehicletype", absent())
+                .withHeader("color", equalTo("black"))
+                .willReturn(aResponse()
+                    .withBody("valid get request")));
     }
 
 
@@ -24,9 +30,14 @@ public class WiremockExercise2 {
     public void motorbikesStub() {
         //todo 2.2
         //Catch-all case
+        stubFor(get(urlMatching("/motorbikes/.*"))
+                .willReturn(aResponse()
+                    .withStatus(401)));
 
         //Specific case
-
+        stubFor(get("/motorbikes/yamaha")
+                .willReturn(aResponse()
+                        .withStatus(200)));
     }
 
     /*
@@ -36,7 +47,10 @@ public class WiremockExercise2 {
      */
     public void getAllCarsStub() {
         //todo 2.3
-
+        stubFor(get("/getAllCars")
+            .willReturn(aResponse()
+                .withHeader("Content-Type", "application/json")
+                .withStatus(200)));
     }
 
     /*
@@ -46,7 +60,10 @@ public class WiremockExercise2 {
     */
     public void authenticationStub() {
         //todo 2.4
-
+        stubFor(get("/authenticateMe")
+            .withBasicAuth("wiremock", "restassured")
+            .willReturn(aResponse()
+                .withBody("successfully authenticated")));
     }
 
     /*
@@ -56,6 +73,9 @@ public class WiremockExercise2 {
     */
     public void cookieStub() {
         //todo 2.5
-
+        stubFor(get("/cookieTime")
+            .withCookie("Country", equalTo("Netherlands"))
+            .willReturn(aResponse()
+                .withBody("Get Succeeded")));
     }
 }

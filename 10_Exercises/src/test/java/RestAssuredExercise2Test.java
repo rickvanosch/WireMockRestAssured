@@ -1,3 +1,4 @@
+import io.restassured.http.ContentType;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.get;
@@ -19,6 +20,19 @@ public class RestAssuredExercise2Test {
     @Test
     public void testBasicAuth() {
         //TODO 5.1
+
+        given()
+                .auth()
+                .preemptive()
+                .basic("admin", "admin")
+                .get("/secureapi")
+                .then()
+                .statusCode(200);
+
+        given()
+                .get("/secureapi")
+                .then()
+                .statusCode(403);
     }
 
     /**
@@ -33,5 +47,31 @@ public class RestAssuredExercise2Test {
     @Test
     public void testTokenAuth() {
         //TODO 5.2
+
+        String token =
+                given()
+                        .auth()
+                        .preemptive()
+                        .basic("giveme", "atoken")
+                        .when()
+                        .get("/tokenapi")
+                        .then()
+                        .extract()
+                        .jsonPath()
+                        .get("token")
+                        .toString();
+
+        given()
+                .contentType("application/json")
+                .body("{\"token\": " + token + "}")
+                .when()
+                .post("/input")
+                .then()
+                .statusCode(200);
+
+        given()
+                .post("/input")
+                .then()
+                .statusCode(400);
     }
 }

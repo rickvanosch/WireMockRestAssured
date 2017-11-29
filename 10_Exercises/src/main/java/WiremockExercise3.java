@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+import com.github.tomakehurst.wiremock.stubbing.Scenario;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
 /**
  * @author rickj
  */
@@ -15,7 +19,9 @@ public class WiremockExercise3 {
     */
     public void getDelayedStub() {
         //todo 3.1
-
+        stubFor(get("/delayRequest")
+                .willReturn(aResponse()
+                        .withFixedDelay(1000)));
     }
 
     /*
@@ -28,7 +34,30 @@ public class WiremockExercise3 {
     4. Another POST request with body 'Buy vw golf' should return body 'Purchased car succesfully'
     5. The 3rd and final GET request should return a body 'No occasions at the dealer'
     */
-    public void ScenarioStub(){
-	//todo 3.2
+    public void ScenarioStub() {
+        //todo 3.2
+        stubFor(get("/carExercise").inScenario("occasion")
+                .whenScenarioStateIs(Scenario.STARTED)
+                .willReturn(aResponse()
+                        .withBody("No occasions at the dealer")));
+
+        stubFor(post("/carExercise").inScenario("occasion")
+                .whenScenarioStateIs(Scenario.STARTED)
+                .withRequestBody(containing("New occasion:vw golf,black,diesel"))
+                .willReturn(aResponse()
+                        .withBody("Occasion added to dealer"))
+                .willSetStateTo("added"));
+
+        stubFor(get("/carExercise").inScenario("occasion")
+                .whenScenarioStateIs("added")
+                .willReturn(aResponse()
+                        .withBody("Occasions in stock")));
+
+        stubFor(post("/carExercise").inScenario("occasion")
+                .whenScenarioStateIs("added")
+                .withRequestBody(containing("Buy vw golf"))
+                .willSetStateTo(Scenario.STARTED)
+                .willReturn(aResponse()
+                        .withBody("Purchased car succesfully")));
     }
 }
