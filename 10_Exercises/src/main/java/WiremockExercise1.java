@@ -14,10 +14,6 @@ public class WiremockExercise1 {
     */
     public void getCarsStub() {
         //todo 1.1
-        stubFor(get("cars/all")
-                .willReturn(aResponse()
-                .withStatus(200))
-        );
     }
 
     /*
